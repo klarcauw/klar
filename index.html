@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AWS 作業｜網路基礎</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+
+            background: #FFF8EA;
+
+            color: #40545C;
+
+            line-height: 1;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #77a1ae,
+                    #E3F6FA
+                );
+
+            padding: 50px 20px 45px;
+
+            text-align: center;
+
+            border-bottom-left-radius: 35px;
+            border-bottom-right-radius: 35px;
+
+            box-shadow:
+                0 8px 25px rgba(71, 132, 150, 0.15);
+        }
+
+
+        .header-icon {
+            font-size: 55px;
+
+            margin-bottom: 10px;
+        }
+
+
+        header h1 {
+            margin: 0;
+
+            color: #24566B;
+
+            font-size: 40px;
+
+            letter-spacing: 2px;
+        }
+
+
+        header p {
+            margin: 12px auto 0;
+
+            max-width: 700px;
+
+            color: #557681;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        nav {
+            width: 90%;
+
+            max-width: 1000px;
+
+            margin: 25px auto 0;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            padding: 12px;
+
+            border-radius: 50px;
+
+            box-shadow:
+                0 5px 18px rgba(70, 120, 135, 0.10);
+
+            text-align: center;
+
+            position: sticky;
+
+            top: 15px;
+
+            z-index: 10;
+        }
+
+
+        nav a {
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: #39778C;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            padding: 8px 13px;
+
+            margin: 3px;
+
+            border-radius: 20px;
+
+            transition: 0.2s;
+        }
+
+
+        nav a:hover {
+            background: #DDF3FA;
+
+            color: #24566B;
+        }
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+            width: 90%;
+
+            max-width: 1000px;
+
+            margin: 45px auto;
+        }
+
+
+        /* =========================================
+           SECTION CARD
+        ========================================= */
+
+        section {
+            background: #FFFFFF;
+
+            margin-bottom: 35px;
+
+            padding: 32px;
+
+            border-radius: 22px;
+
+            border: 1px solid #D9EDF2;
+
+            box-shadow:
+                0 8px 25px rgba(65, 120, 135, 0.09);
+
+            transition: 0.3s;
+        }
+
+
+        section:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 13px 30px rgba(65, 120, 135, 0.14);
+        }
+
+
+        /* =========================================
+           SECTION TITLE
+        ========================================= */
+
+        .section-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .number {
+            min-width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #B9E5F3;
+
+            color: #24566B;
+
+            border-radius: 50%;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+
+        section h2 {
+            margin: 0;
+
+            color: #24566B;
+
+            font-size: 26px;
+        }
+
+
+        /* =========================================
+           SUBTITLE
+        ========================================= */
+
+        h3 {
+            color: #4C899D;
+
+            font-size: 20px;
+
+            margin-top: 28px;
+
+            margin-bottom: 8px;
+        }
+
+
+        p {
+            font-size: 16px;
+
+            margin-top: 8px;
+        }
+
+
+        /* =========================================
+           BADGE
+        ========================================= */
+
+        .badge {
+            display: inline-block;
+
+            background: #DDF3FA;
+
+            color: #32758A;
+
+            padding: 4px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================
+           EXPLANATION BOX
+        ========================================= */
+
+        .info-box {
+            background: #FFF5D9;
+
+            border-left: 5px solid #E5C66D;
+
+            padding: 18px 20px;
+
+            margin: 20px 0;
+
+            border-radius: 12px;
+
+            color: #655735;
+        }
+
+
+        .info-box strong {
+            color: #8A6D32;
+        }
+
+
+        /* =========================================
+           BLUE BOX
+        ========================================= */
+
+        .blue-box {
+            background: #EDF9FC;
+
+            border: 1px solid #C5E8F0;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            margin: 20px 0;
+        }
+
+
+        /* =========================================
+           CODE
+        ========================================= */
+
+        code {
+            background: #E7F6FA;
+
+            color: #28677A;
+
+            padding: 4px 8px;
+
+            border-radius: 6px;
+
+            font-family: Consolas, monospace;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================
+           DIAGRAM
+        ========================================= */
+
+        pre {
+            background: #F3FAFC;
+
+            border: 1px solid #D5EAF0;
+
+            padding: 20px;
+
+            border-radius: 14px;
+
+            overflow-x: auto;
+
+            color: #416875;
+
+            font-family: Consolas, monospace;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           TABLE
+        ========================================= */
+
+        .table-title {
+            margin-top: 25px;
+
+            margin-bottom: 10px;
+
+            color: #39788C;
+
+            font-weight: bold;
+
+            font-size: 17px;
+        }
+
+
+        table {
+            width: 100%;
+
+            border-collapse: separate;
+
+            border-spacing: 0;
+
+            overflow: hidden;
+
+            border-radius: 14px;
+
+            border: 1px solid #CFE5EB;
+
+            margin: 15px 0 25px;
+
+            box-shadow:
+                0 4px 12px rgba(70, 120, 135, 0.06);
+        }
+
+
+        th {
+            background: #B9E2F0;
+
+            color: #24566B;
+
+            padding: 15px;
+
+            text-align: left;
+
+            font-size: 16px;
+        }
+
+
+        td {
+            padding: 14px 15px;
+
+            border-top: 1px solid #E1EEF1;
+
+            background: white;
+        }
+
+
+        tr:nth-child(even) td {
+            background: #F7FCFD;
+        }
+
+
+        tr:hover td {
+            background: #FFF5DC;
+        }
+
+
+        /* =========================================
+           URL BOX
+        ========================================= */
+
+        .url-box {
+            background:
+                linear-gradient(
+                    135deg,
+                    #DDF4FA,
+                    #EFFBFD
+                );
+
+            border: 2px solid #A8DDEA;
+
+            padding: 22px;
+
+            border-radius: 15px;
+
+            color: #24566B;
+
+            font-family: Consolas, monospace;
+
+            font-weight: bold;
+
+            text-align: center;
+
+            word-break: break-all;
+
+            margin: 20px 0;
+
+            box-shadow:
+                0 5px 15px rgba(70, 140, 160, 0.08);
+        }
+
+
+        /* =========================================
+           URL PARTS
+        ========================================= */
+
+        .url-part {
+            display: inline-block;
+
+            background: #F3FAFC;
+
+            border: 1px solid #D4EAF0;
+
+            padding: 8px 12px;
+
+            margin: 5px;
+
+            border-radius: 8px;
+
+            font-family: Consolas, monospace;
+
+            color: #39788C;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            margin-top: 50px;
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background: #B9E5F3;
+
+            color: #24566B;
+
+            border-top-left-radius: 35px;
+
+            border-top-right-radius: 35px;
+        }
+
+
+        footer strong {
+            font-size: 18px;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+
+            .header-icon {
+                font-size: 45px;
+            }
+
+
+            nav {
+                border-radius: 20px;
+
+                position: static;
+            }
+
+
+            nav a {
+                font-size: 13px;
+
+                padding: 6px 9px;
+            }
+
+
+            main {
+                width: 94%;
+            }
+
+
+            section {
+                padding: 22px;
+            }
+
+
+            section h2 {
+                font-size: 21px;
+            }
+
+
+            .section-title {
+                align-items: flex-start;
+            }
+
+
+            table {
+                font-size: 14px;
+            }
+
+
+            th,
+            td {
+                padding: 10px;
+            }
+
+
+            .url-box {
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header>
+
+        <div class="header-icon">🌐</div>
+
+        <h1>網路基礎介紹</h1>
+
+        <p>
+            Understanding the Basics of Computer Networks
+        </p>
+
+    </header>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav>
+
+        <a href="#basic">🔐 基礎</a>
+
+        <a href="#firewall">🔥 防火牆</a>
+
+        <a href="#cidr">🌐 CIDR</a>
+
+        <a href="#dns">📖 DNS & IP</a>
+
+        <a href="#url">🔗 URL</a>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- =========================================
+             1. BASIC
+        ========================================= -->
+
+        <section id="basic">
+
+            <div class="section-title">
+
+                <div class="number">01</div>
+
+                <h2>憑證、HTTP、HTTPS、Port</h2>
+
+            </div>
+
+
+            <span class="badge">
+                🔐 網路安全與通訊
+            </span>
+
+
+            <h3>🔐 憑證 Certificate</h3>
+
+            <p>
+                憑證可以想成網站的「身分證」。
+                它可以幫助瀏覽器確認網站的身分，
+                並協助建立安全的 HTTPS 連線。
+            </p>
+
+
+            <div class="info-box">
+
+                <strong>💡 簡單理解：</strong>
+
+                <br>
+
+                憑證就像網站的電子身分證，
+                用來證明網站是誰。
+
+            </div>
+
+
+            <h3>📨 HTTP</h3>
+
+            <p>
+                HTTP 是
+                <strong>HyperText Transfer Protocol</strong>。
+                它是一種讓瀏覽器和網站伺服器互相溝通的協定。
+            </p>
+
+
+            <h3>🔒 HTTPS</h3>
+
+            <p>
+                HTTPS 是比較安全的 HTTP。
+                它使用 TLS 加密資料，
+                讓資料在傳輸過程中比較不容易被看到或修改。
+            </p>
+
+
+            <div class="blue-box">
+
+                <strong>HTTP vs HTTPS</strong>
+
+                <table>
+
+                    <tr>
+                        <th>項目</th>
+                        <th>HTTP</th>
+                        <th>HTTPS</th>
+                    </tr>
+
+                    <tr>
+                        <td>安全性</td>
+                        <td>沒有加密保護</td>
+                        <td>使用 TLS 加密</td>
+                    </tr>
+
+                    <tr>
+                        <td>常見 Port</td>
+                        <td>80</td>
+                        <td>443</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+            <h3>🚪 Port</h3>
+
+            <p>
+                Port 可以想成電腦的「房間號碼」，
+                用來指定要連接哪一個網路服務。
+            </p>
+
+
+            <table>
+
+                <tr>
+                    <th>Port</th>
+                    <th>服務</th>
+                    <th>簡單說明</th>
+                </tr>
+
+                <tr>
+                    <td><strong>80</strong></td>
+                    <td>HTTP</td>
+                    <td>一般網頁連線</td>
+                </tr>
+
+                <tr>
+                    <td><strong>443</strong></td>
+                    <td>HTTPS</td>
+                    <td>安全網頁連線</td>
+                </tr>
+
+                <tr>
+                    <td><strong>22</strong></td>
+                    <td>SSH</td>
+                    <td>遠端登入</td>
+                </tr>
+
+                <tr>
+                    <td><strong>3306</strong></td>
+                    <td>MySQL</td>
+                    <td>資料庫服務</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- =========================================
+             2. FIREWALL
+        ========================================= -->
+
+        <section id="firewall">
+
+            <div class="section-title">
+
+                <div class="number">02</div>
+
+                <h2>Inbound、Outbound、防火牆</h2>
+
+            </div>
+
+
+            <span class="badge">
+                🔥 Network Security
+            </span>
+
+
+            <h3>🔥 Firewall 防火牆</h3>
+
+            <p>
+                防火牆可以想成網路上的「警衛」。
+                它會檢查網路連線，
+                決定哪些連線可以進入或離開電腦。
+            </p>
+
+
+            <div class="info-box">
+
+                <strong>💡 想像成一棟大樓：</strong>
+
+                <br><br>
+
+                防火牆 = 大樓警衛
+
+                <br>
+
+                Inbound = 有人想進入大樓
+
+                <br>
+
+                Outbound = 大樓裡的人想出去
+
+            </div>
+
+
+            <h3>⬇️ Inbound</h3>
+
+            <p>
+                Inbound 表示「進入」。
+                例如外部電腦想要連接你的 Web Server。
+            </p>
+
+
+            <h3>⬆️ Outbound</h3>
+
+            <p>
+                Outbound 表示「出去」。
+                例如你的電腦連接 Google 網站。
+            </p>
+
+
+            <pre>
+        Internet
+            │
+            ▼
+       🔥 Firewall
+            │
+            ▼
+     Your Computer
+            </pre>
+
+
+            <h3>⚙️ 防火牆怎麼設定？</h3>
+
+            <p>
+                Windows Firewall 可以設定
+                <strong>Inbound Rules</strong>
+                和
+                <strong>Outbound Rules</strong>。
+                使用者可以決定哪些 Port 或服務可以通過。
+            </p>
+
+
+            <div class="blue-box">
+
+                <strong>例如：</strong>
+
+                <p>
+                    如果 Web Server 使用 HTTPS，
+                    可以設定允許 TCP Port 443 的連線。
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             3. CIDR
+        ========================================= -->
+
+        <section id="cidr">
+
+            <div class="section-title">
+
+                <div class="number">03</div>
+
+                <h2>什麼是 CIDR？</h2>
+
+            </div>
+
+
+            <span class="badge">
+                🌐 IP Network
+            </span>
+
+
+            <p>
+                CIDR 是
+                <strong>Classless Inter-Domain Routing</strong>。
+                它是一種表示 IP 網路範圍的方法。
+            </p>
+
+
+            <div class="info-box">
+
+                <strong>💡 最簡單的理解：</strong>
+
+                <br>
+
+                CIDR 可以用來表示「一群 IP 所屬的網路範圍」。
+
+            </div>
+
+
+            <div class="blue-box">
+
+                <h3>📌 例子</h3>
+
+                <p>
+                    <code>192.168.1.0/24</code>
+                </p>
+
+                <p>
+                    <strong>/24</strong>
+                    表示前 24 bits 是 Network 部分。
+                </p>
+
+                <p>
+                    可以簡單理解成：
+                    <code>192.168.1.x</code>
+                    這個網路範圍。
+                </p>
+
+            </div>
+
+
+            <table>
+
+                <tr>
+                    <th>CIDR</th>
+                    <th>簡單理解</th>
+                </tr>
+
+                <tr>
+                    <td><strong>/8</strong></td>
+                    <td>很大的網路範圍</td>
+                </tr>
+
+                <tr>
+                    <td><strong>/16</strong></td>
+                    <td>中大型網路</td>
+                </tr>
+
+                <tr>
+                    <td><strong>/24</strong></td>
+                    <td>常見的小型網路</td>
+                </tr>
+
+                <tr>
+                    <td><strong>/32</strong></td>
+                    <td>代表單一 IP</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- =========================================
+             4. DNS / IP / DOMAIN
+        ========================================= -->
+
+        <section id="dns">
+
+            <div class="section-title">
+
+                <div class="number">04</div>
+
+                <h2>DNS、IP、Domain、URL</h2>
+
+            </div>
+
+
+            <span class="badge">
+                📖 Internet Address
+            </span>
+
+
+            <h3>📍 IP Address</h3>
+
+            <p>
+                IP Address 是電腦在網路上的地址。
+                電腦可以透過 IP 找到其他電腦或伺服器。
+            </p>
+
+
+            <div class="blue-box">
+
+                <strong>例如：</strong>
+
+                <p>
+                    <code>142.250.72.14</code>
+                </p>
+
+                <p>
+                    可以把 IP 想成「房子的地址」。
+                </p>
+
+            </div>
+
+
+            <h3>🌐 Domain Name</h3>
+
+            <p>
+                Domain Name 是比較容易讓人記住的網站名稱。
+            </p>
+
+
+            <div class="blue-box">
+
+                <strong>例如：</strong>
+
+                <p>
+                    <code>google.com</code>
+                </p>
+
+                <p>
+                    人類通常比起 IP 更容易記住 Domain Name。
+                </p>
+
+            </div>
+
+
+            <h3>📖 DNS</h3>
+
+            <p>
+                DNS 是
+                <strong>Domain Name System</strong>。
+                它可以將 Domain Name 找到對應的 IP Address。
+            </p>
+
+
+            <pre>
+     www.google.com
+             │
+             ▼
+           DNS
+             │
+             ▼
+        IP Address
+             │
+             ▼
+       Google Server
+            </pre>
+
+
+            <div class="info-box">
+
+                <strong>💡 可以這樣記：</strong>
+
+                <br><br>
+
+                Domain = 人類容易記的名字
+
+                <br>
+
+                IP = 電腦使用的地址
+
+                <br>
+
+                DNS = 幫忙查地址的電話簿
+
+            </div>
+
+
+            <h3>🔗 URL</h3>
+
+            <p>
+                URL 是
+                <strong>Uniform Resource Locator</strong>。
+                它可以想成網路資源的完整地址。
+            </p>
+
+
+            <div class="url-box">
+
+                https://www.example.com/index.html
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             5. URL
+        ========================================= -->
+
+        <section id="url">
+
+            <div class="section-title">
+
+                <div class="number">05</div>
+
+                <h2>URL 範例解析</h2>
+
+            </div>
+
+
+            <span class="badge">
+                🔗 Understanding a URL
+            </span>
+
+
+            <p>
+                下面這個 URL 可以拆成幾個不同的部分：
+            </p>
+
+
+            <div class="url-box">
+
+                https://www.ncnu.edu.tw:1234/class/upload.php?file=abc
+
+            </div>
+
+
+            <div class="table-title">
+                📋 URL 每一部分的意思
+            </div>
+
+
+            <table>
+
+                <tr>
+                    <th>URL 部分</th>
+                    <th>名稱</th>
+                    <th>意思</th>
+                </tr>
+
+
+                <tr>
+                    <td><code>https://</code></td>
+
+                    <td>Protocol</td>
+
+                    <td>
+                        使用 HTTPS 通訊協定
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><code>www.ncnu.edu.tw</code></td>
+
+                    <td>Domain</td>
+
+                    <td>
+                        網站的網域名稱
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><code>:1234</code></td>
+
+                    <td>Port</td>
+
+                    <td>
+                        使用 1234 Port
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><code>/class/upload.php</code></td>
+
+                    <td>Path</td>
+
+                    <td>
+                        伺服器上的路徑與資源
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><code>?file=abc</code></td>
+
+                    <td>Query</td>
+
+                    <td>
+                        查詢參數，file 的值是 abc
+                    </td>
+                </tr>
+
+            </table>
+
+
+            <h3>🧩 把 URL 拆開來看</h3>
+
+
+            <div class="blue-box">
+
+                <span class="url-part">HTTPS</span>
+
+                <span>＋</span>
+
+                <span class="url-part">Domain</span>
+
+                <span>＋</span>
+
+                <span class="url-part">Port</span>
+
+                <span>＋</span>
+
+                <span class="url-part">Path</span>
+
+                <span>＋</span>
+
+                <span class="url-part">Query</span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>💡 完整理解：</strong>
+
+                <br><br>
+
+                <strong>HTTPS</strong>
+                → 使用安全的通訊方式
+
+                <br>
+
+                <strong>www.ncnu.edu.tw</strong>
+                → 找到哪一個網站
+
+                <br>
+
+                <strong>1234</strong>
+                → 找到哪一個 Port
+
+                <br>
+
+                <strong>/class/upload.php</strong>
+                → 找到哪一個資源
+
+                <br>
+
+                <strong>file=abc</strong>
+                → 傳送的參數
+
+            </div>
+
+
+            <pre>
+https://www.ncnu.edu.tw:1234/class/upload.php?file=abc
+│       │                 │    │                  │
+│       │                 │    │                  │
+│       │                 │    │                  └─ Query
+│       │                 │    │
+│       │                 │    └─ Path
+│       │                 │
+│       │                 └─ Port
+│       │
+│       └─ Domain
+│
+└─ Protocol
+            </pre>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <strong>🌐 AWS 作業｜網路基礎</strong>
+
+        <p>
+            112213057 趙麗珊
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>q

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Resume</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4e7e7;
+            margin: 30px;
+        }
+
+        .resume {
+            background-color: rgb(247, 238, 255);
+            width: 700px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eeeeee;
+        }
+
+        input, select, textarea {
+            width: 95%;
+            padding: 7px;
+            margin: 5px 0;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        button {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume">
+
+    <h1>My Resume</h1>
+    <h2 style="text-align: center;">Personal Information</h2>
+
+    <table>
+        <div style="text-align: center;">
+            <img src="images.jpg" alt="Profile Picture" style="align-content: center; width:200px;height:200px;border-radius:50%;border: 2px solid #555;">
+        </div>
+        <tr><th>Name</th><td>Klarissa Cau 趙麗珊</td></tr>
+        <tr><th>Email</th><td>s112213057@ncnu.edu.tw</td></tr>
+        <tr><th>Phone</th><td>0989-117-949</td></tr>
+        <tr><th>Major</th><td>Information Management</td></tr>
+        
+    </table>
+
+    <h2>Education</h2>
+
+    <ul>
+        <li>National Chi Nan University</li>
+        <li>Department of Information Management</li>
+        <li>Expected Graduation: 2027</li>
+    </ul>
+
+    <h2>Skills</h2>
+
+    <ol>
+        <li>HTML/CSS</li>     
+        <li>Java</li>
+        <li>tableau</li>   
+        <li>Data cleaning</li>
+    </ol>   
+
+    <h2>Experience</h2>
+
+    <table>
+        <tr><th>Position</th><th>Description</th></tr>
+        <tr><td>Student Association Secretary</td><td>Helped with events and communication.</td></tr>
+        <tr><td>Part-time Worker</td><td>Served customers and worked with team members.</td></tr>
+    </table>
+
+    <h2>Contact Me</h2>
+
+    <form>
+
+        <label>Name:</label><br>
+        <input type="text" name="name" placeholder="Enter your name">
+
+        <br>
+
+        <label>Interested Position:</label><br>
+
+        <select name="your position">
+            <option value="data">Data Analyst</option>
+            <option value="developer">Web Developer</option>
+            <option value="database">Database Assistant</option>
+        </select>
+
+        <br>
+
+        <label>Skills:</label><br>
+
+        <input type="checkbox" name="skill" value="html">
+        HTML
+
+        <input type="checkbox" name="skill" value="sql">
+        SQL
+
+        <input type="checkbox" name="skill" value="java">
+        Java
+
+        <br><br>
+
+        <label>Message:</label><br>
+
+        <textarea name="message" rows="5"
+            placeholder="Write your message here"></textarea>
+
+        <br>
+
+        <button type="submit">OK </button>
+
+    </form>
+
+</div>
+</body>
+</html>
